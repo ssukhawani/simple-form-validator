@@ -20,8 +20,12 @@ function showSuccess(input){
     containerclass.className = "container-inside success";
 }
 
+// checking if email is valid or not 
 
-
+function isValidEmail(email){
+const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+return re.test(String(email).toLowerCase());
+}
 
 
 
@@ -40,21 +44,35 @@ form.addEventListener('submit', function(e){
   //if email is not entered
   if (email.value === "") {
     showError(email, "Email is required");
-  } else {
+
+  } else if(!isValidEmail(email.value)){
+      showError(email, "Email is not valid");
+
+  }else {
     showSuccess(email);
   }
 
   //if password1 is not entered
   if (password1.value === "") {
     showError(password1, "Password is required");
-  } else {
+
+  } else if(password1.value.length <= 8){
+      showError(password1, "Password must be more than 8 character");
+
+  }
+  else {
     showSuccess(password1);
   }
 
   //if password2 is not entered
   if (password2.value === "") {
     showError(password2, "Password is required again");
-  } else {
+
+  } else if(password2.value != password1.value){
+      showError(password2, "Password not matched");
+  }
+  else {
     showSuccess(password2);
   }
 });
+
