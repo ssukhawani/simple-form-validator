@@ -14,7 +14,7 @@ body{
 
 .container{
     width: 400px;
-    background-color: rgba(212, 211, 211, 0.5);
+    background-color: rgba(212, 211, 211, 0.8);
     box-shadow: 0 5px 5px 5px rgba(98, 84, 228, 0.7);
     border-radius: 10px;
 }
@@ -36,7 +36,7 @@ h2{
 
 .container-inside label{
     display: block;
-    color: #777;
+    color: #696969;
     margin-bottom: 5px;
     font-size: 20px;
 }
@@ -46,7 +46,7 @@ h2{
     width: 95%;
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid #f0f0f0;
+    border: 2px solid #c0c0c0;
 }
 .container-inside input:focus{
     outline: 0;
@@ -91,6 +91,11 @@ h2{
     animation: heartbeat 2s ease-in-out infinite both;
 }
 
+.form button:active {
+    transform: translate(0, 0.3rem);
+
+}
+
 @keyframes heartbeat {
     from {
         transform: scale(1);
@@ -120,7 +125,10 @@ h2{
         animation-timing-function: ease-out;
     }
 }
-.form button:active{
-    transform: translate(0, 0.3rem);
 
+@media screen and (max-width 1000px){
+    .container{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
